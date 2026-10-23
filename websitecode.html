@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name · Mathematics</title>
+<meta name="description" content="Personal academic website of Your Name, mathematics student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f8fb;
+    --surface: #ffffff;
+    --ink: #16213a;
+    --muted: #5a6479;
+    --line: #dde3ee;
+    --accent: #2b59c3;
+    --accent-ink: #ffffff;
+    --knot: #2b59c3;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11172a; --surface: #182038; --ink: #e8ecf6; --muted: #9aa5bf;
+      --line: #2a3454; --accent: #86a8ff; --accent-ink: #11172a; --knot: #86a8ff;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Literata", Georgia, serif; font-size: 18px; line-height: 1.7;
+  }
+  .sans { font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header.site {
+    max-width: 760px; margin: 0 auto; padding: 22px 24px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: "Instrument Sans", system-ui, sans-serif; font-size: 15px;
+  }
+  header.site .mark { font-weight: 600; color: var(--ink); text-decoration: none; }
+  header.site nav { display: flex; gap: 20px; }
+  header.site nav a { color: var(--muted); text-decoration: none; }
+  header.site nav a:hover { color: var(--accent); }
+
+  main { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .hero {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: center;
+    padding: 56px 0 48px;
+  }
+  .knot { position: absolute; right: -60px; top: 10px; width: 340px; height: 340px; opacity: .16; pointer-events: none; }
+  .portrait {
+    width: 180px; height: 180px; border-radius: 50%; overflow: hidden;
+    background: var(--line); display: grid; place-items: center;
+    font-family: "Instrument Sans", sans-serif; font-weight: 600; font-size: 54px; color: var(--muted);
+    border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line);
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  h1 { font-size: clamp(34px, 6vw, 48px); line-height: 1.1; margin: 0 0 8px; font-weight: 600; letter-spacing: -0.01em; }
+  .role { margin: 0 0 18px; color: var(--muted); font-family: "Instrument Sans", system-ui, sans-serif; font-size: 17px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; position: relative; }
+  .btn {
+    font-family: "Instrument Sans", system-ui, sans-serif; font-size: 15px; font-weight: 500;
+    padding: 9px 18px; border-radius: 999px; text-decoration: none;
+    border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+  section { padding: 36px 0 8px; border-top: 1px solid var(--line); margin-top: 24px; }
+  h2 { font-size: 26px; margin: 0 0 14px; font-weight: 600; }
+  p { margin: 0 0 16px; max-width: 64ch; }
+
+  ul.pubs { list-style: none; margin: 0; padding: 0; }
+  ul.pubs li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  ul.pubs li:last-child { border-bottom: 0; }
+  .pub-title { font-weight: 600; }
+  .pub-meta { color: var(--muted); font-size: 16px; }
+  .pub-links { font-family: "Instrument Sans", system-ui, sans-serif; font-size: 14px; margin-top: 2px; }
+  .pub-links a { margin-right: 12px; }
+
+  footer { max-width: 760px; margin: 0 auto; padding: 0 24px 40px; color: var(--muted); font-family: "Instrument Sans", system-ui, sans-serif; font-size: 14px; }
+
+  @media (max-width: 620px) {
+    body { font-size: 17px; }
+    .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; justify-items: start; }
+    .portrait { width: 132px; height: 132px; font-size: 40px; }
+    .knot { width: 240px; height: 240px; right: -70px; top: -10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="mark" href="#top">Your Name</a>
+  <nav aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="knot" viewBox="-4 -4 8 8" aria-hidden="true" id="knot"></svg>
+
+    <!-- Put your photo next to this file as photo.jpg. Until then the initials show. -->
+    <div class="portrait" id="portrait">
+      <img src="photo.jpg" alt="Portrait of Your Name" onerror="this.remove(); document.getElementById('portrait').append('YN');">
+    </div>
+
+    <div style="position:relative">
+      <h1>Your Name</h1>
+      <p class="role">Graduate student in mathematics, Your University</p>
+      <div class="actions">
+        <a class="btn primary" href="cv.pdf">Download CV</a>
+        <a class="btn" href="mailto:you@university.edu">Email</a>
+        <a class="btn" href="https://github.com/yourname">GitHub</a>
+        <a class="btn" href="https://arxiv.org/a/yourname">arXiv</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I’m a graduate student at Your University, working with Your Advisor. I enjoy problems where geometry, algebra, and computation meet, and I like writing code to test conjectures before trying to prove them.</p>
+    <p>Outside of math, I [hobby], [hobby], and [hobby].</p>
+  </section>
+
+  <section id="research">
+    <h2>Research interests</h2>
+    <p>My main interests are low-dimensional topology and knot theory, especially knot Floer homology and the computational side of knot invariants. I’m also interested in algorithms and software for studying knots at scale.</p>
+  </section>
+
+  <section id="publications">
+    <h2>Publications and preprints</h2>
+    <ul class="pubs">
+      <li>
+        <div class="pub-title">Title of your first paper</div>
+        <div class="pub-meta">Your Name, Coauthor Name · Journal or arXiv number · 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a><a href="#">PDF</a><a href="#">Code</a></div>
+      </li>
+      <li>
+        <div class="pub-title">Title of a paper in preparation</div>
+        <div class="pub-meta">Your Name · In preparation</div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Your Name</footer>
+
+<script>
+  // Trefoil knot, drawn as a decorative outline.
+  (function () {
+    var pts = [];
+    for (var i = 0; i <= 400; i++) {
+      var t = (i / 400) * 2 * Math.PI;
+      var x = Math.sin(t) + 2 * Math.sin(2 * t);
+      var y = Math.cos(t) - 2 * Math.cos(2 * t);
+      pts.push((i ? "L" : "M") + x.toFixed(3) + " " + y.toFixed(3));
+    }
+    document.getElementById("knot").innerHTML =
+      '<path d="' + pts.join("") + 'Z" fill="none" stroke="var(--knot)" stroke-width="0.28" stroke-linecap="round" stroke-linejoin="round"/>';
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
